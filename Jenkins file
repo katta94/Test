@@ -8,7 +8,7 @@ pipeline {
     agent {
         docker {
            image ''
-            registryUrl " "
+            registryUrl "http://docker "
             registryCredentialsId " "
             args ''
         }
