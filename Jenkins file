@@ -2,8 +2,8 @@ pipeline {
     environment {
         SOURCE_DOCKER_REGISTRY = " "
         TARGET_DOCKER_REGISTRY = " "
-        APP_NAME = " "
-        PROJECT_NAME = " "
+        APP_NAME = "Sample App "
+        PROJECT_NAME = "Test"
     }
     agent {
         docker {
