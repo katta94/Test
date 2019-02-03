@@ -1,0 +1,50 @@
+pipeline {
+    environment {
+        SOURCE_DOCKER_REGISTRY = " "
+        TARGET_DOCKER_REGISTRY = " "
+        APP_NAME = " "
+        PROJECT_NAME = " "
+    }
+    agent {
+        docker {
+           image ''
+            registryUrl " "
+            registryCredentialsId " "
+            args ''
+        }
+    }
+    parameters {
+        booleanParam(
+            name: 'GO_LIVE', 
+            defaultValue: false, 
+            description: 'Set this flag to true to deploy on prod when on master branch.'
+        )
+    }
+    
+    
+    stages {
+        stage('Build the jar file.') {
+            steps {
+                withCredentials( ) {
+                    sh " "
+                    script {
+                        VERSION = sh( )
+                    }
+                }
+            }
+        }
+        
+        stage('Veracode Scan') {
+         when {
+                anyOf {
+                    branch "develop";
+                    branch "release/*";
+                    branch 'poc'
+                }
+            }
+            steps {
+            	
+            	}
+                withCredentials(
+                   
+        
