@@ -1,7 +1,7 @@
 pipeline {
     environment {
         SOURCE_DOCKER_REGISTRY = " "
-        TARGET_DOCKER_REGISTRY = " "
+        TARGET_DOCKER_REGISTRY = "docker "
         APP_NAME = "Sample App "
         PROJECT_NAME = "Test"
     }
