@@ -10,7 +10,7 @@ pipeline {
            image ''
             registryUrl "http://docker "
             registryCredentialsId "cred_docker"
-            args ''
+            args 'v1, k2'
         }
     }
     parameters {
