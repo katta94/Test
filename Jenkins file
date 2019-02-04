@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        SOURCE_DOCKER_REGISTRY = "http://Docker"
+        SOURCE_DOCKER_REGISTRY = "http:///Docker"
         TARGET_DOCKER_REGISTRY = "docker "
         APP_NAME = "Sample App "
         PROJECT_NAME = "Test"
@@ -9,7 +9,7 @@ pipeline {
         docker {
            image ''
             registryUrl "http://docker "
-            registryCredentialsId " "
+            registryCredentialsId "cred_docker"
             args ''
         }
     }
