@@ -1,1 +1,100 @@
+ssh-keygen -t rsa -b 4096
 
+# Don’t forget to add your rsa key to bitbucket
+
+ 
+
+# Refer to the file attached to clone git repositories for our projects. 
+
+# (you can execute the .sh or edit it to keep what you want).  It will create a directory structure: ~/sandbox/bnc/[app5364,projects] with the repository for app5364/ et projects/[paap, ansible-roles]/
+
+ 
+
+ 
+
+# Packages you might need on Mac OS
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install wget
+
+brew install tcpdump wireshark nmap netcat
+
+brew cask install kubectl
+
+brew cask install ansible
+
+brew cask install minikube
+
+brew cask install virtualbox
+
+brew cask install google-cloud-sdk
+
+brew cask install virtualbox
+
+brew cask install minikube
+
+pip3 install virtualenv
+
+ 
+
+# Copy .bash_profile to your homedirectory: ~/.bash_profile
+
+cat << EOF > ~/.bash_profile
+
+export LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/libpcap/lib -L/usr/local/opt/libpcap/lib "-L/usr/local/opt/libffi/lib""
+
+export CPPFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/libpcap/include"
+
+export PATH="/usr/local/opt/openssl/bin:/usr/local/opt/libpcap/bin:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+
+ 
+
+# The next line updates PATH for the Google Cloud SDK.
+
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'; fi
+
+ 
+
+# The next line enables shell command completion for gcloud.
+
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/completion.bash.inc' ]; then . '/usr/local/Caskroom/google-cloud-sdk/latest/completion.bash.inc'; fi
+
+EOF
+
+ 
+
+# Cheat Sheet Kubernetes
+
+# Kubernetes resources on how to work from one cluster to another or one kubectl context to another.
+
+# Https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+
+ 
+
+# Initialize gcloud
+
+gcloud init
+
+ 
+
+# Configure gcloud environment and kubectl context - Create file ~/.kube/config
+
+gcloud beta container clusters get-credentials nonprod-private-gke-cluster-pemo --region northamerica-northeast1 --project nonprod-gke-private-pemo
+
+ 
+
+# How to start minikube (need to figure out how to auto start it at boot)
+
+minikube start --vm-driver virtual box
+
+ 
+
+# How to visualize kubectl config context definition
+
+kubectl config view
+
+ 
+
+# How to use a context
+
+kubectl config use-context gke_nonprod
